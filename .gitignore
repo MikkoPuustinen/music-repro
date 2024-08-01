@@ -2,3 +2,5 @@
 **/*.wav
 **/__pycache__/
 training/runs/
+/data/genres_original/*
+/data/images_original/*
