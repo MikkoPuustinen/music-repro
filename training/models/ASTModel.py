@@ -208,7 +208,7 @@ class ASTModel(nn.Module):
                 )
             device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
             if (
-                os.path.exists("../../pretrained_models/audioset_10_10_0.4593.pth")
+                os.path.exists("./pretrained_models/audioset_10_10_0.4593.pth")
                 == False
             ):
                 # this model performs 0.4593 mAP on the audioset eval set
@@ -217,10 +217,10 @@ class ASTModel(nn.Module):
                 )
                 wget.download(
                     audioset_mdl_url,
-                    out="../../pretrained_models/audioset_10_10_0.4593.pth",
+                    out="./pretrained_models/audioset_10_10_0.4593.pth",
                 )
             sd = torch.load(
-                "../../pretrained_models/audioset_10_10_0.4593.pth", map_location=device
+                "./pretrained_models/audioset_10_10_0.4593.pth", map_location=device
             )
             audio_model = ASTModel(
                 label_dim=527,
@@ -327,7 +327,7 @@ class ASTModel(nn.Module):
             return oup, x, _x
         else:
             x = self.mlp_head(x)
-            
+
             return x
 
 
